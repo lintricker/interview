@@ -1,7 +1,8 @@
+
 const MainAdmin = () => {
   return (
     <div>
-      Привет
+      
     </div>
   );
 };

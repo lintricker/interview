@@ -1,10 +1,11 @@
+import React from 'react';
 import './App.css';
-import { MainAdmin } from './Components/admin/MainAdmin';
+import { Auth } from './Components/Auth';
 
 function App() {
   return (
     <div>
-      <MainAdmin />
+      <Auth />
     </div>
   );
 }
