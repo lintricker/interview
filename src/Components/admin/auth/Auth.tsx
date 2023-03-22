@@ -1,5 +1,4 @@
 import React from 'react';
-import { MainAdmin } from './admin/MainAdmin';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
@@ -23,7 +22,8 @@ const Auth = () => {
             placeholder="password"
           />
         </FormControl>
-        <Button onClick={MainAdmin} sx={{ mt: 1 /* margin top */ }}>Log in</Button>
+        
+        <Button id='myButton' sx={{ mt: 1 /* margin top */ }}>Log in</Button>
       </div>
     );
   };
