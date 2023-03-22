@@ -1,11 +1,10 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import React from 'react';
-import CatCard from './categoryCard/catCard';
+import CatCard from './card/catCard';
 
 
 const cats = ['HTML', 'JavaScrypt', 'CSS', 'HTTP'];
-
 
 const Categories = () => {
   return (
@@ -14,7 +13,8 @@ const Categories = () => {
       <Grid container>
         <Grid item>
           {cats.map((item) => (
-            <CatCard item={item}/>
+            <CatCard key={item}
+                     item={item}/>
           ))}
         </Grid>
       </Grid>
