@@ -5,6 +5,9 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Questions } from './questions/Questions';
 import { Categories } from './categories/categories';
+import { Types } from './types/types';
+import { Staff } from './staff/staff';
+import { Difficulties } from './difficulties/difficulties'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -48,7 +51,7 @@ const AdminPage = () => {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', margin: 22}}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', margin: 10}}
     >
       <Tabs
         orientation="vertical"
@@ -71,13 +74,13 @@ const AdminPage = () => {
         <Categories />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Difficulties />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <Types />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+        <Staff />
       </TabPanel>
     </Box>
   );

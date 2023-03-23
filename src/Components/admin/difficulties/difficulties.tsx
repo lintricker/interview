@@ -4,15 +4,15 @@ import React from 'react';
 import CatCard from '../card/catCard';
 
 
-const cats = ['HTML', 'JavaScrypt', 'CSS', 'HTTP'];
+const diffs = ['Junior', 'Middle', 'Hard'];
 
-const Categories = () => {
+const Difficulties = () => {
   return (
     <div>
       <TextField id="standard-basic" label="Поиск" variant="standard" />
       <Grid container >
         <Grid item>
-          {cats.map((item) => (
+          {diffs.map((item) => (
             <CatCard key={item}
                      item={item}/>
           ))}
@@ -22,4 +22,4 @@ const Categories = () => {
   );
 }
 
-export { Categories };
+export { Difficulties };
