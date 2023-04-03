@@ -8,6 +8,9 @@ import { Categories } from './categories/categories';
 import { Types } from './types/types';
 import { Staff } from './staff/staff';
 import { Difficulties } from './difficulties/difficulties'
+import { MenuHeader } from './menu';
+import './styles/Box.css';
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -49,10 +52,8 @@ const AdminPage = () => {
     setValue(newValue);
   };
 
-  return (
-    <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', margin: 10}}
-    >
+  return (   
+  <div><MenuHeader /><Box id='Box_AdminPage' sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex'}}>
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -68,7 +69,7 @@ const AdminPage = () => {
         <Tab label="Сотрудники" {...a11yProps(4)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <Questions />
+        <Questions/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Categories />
@@ -82,7 +83,7 @@ const AdminPage = () => {
       <TabPanel value={value} index={4}>
         <Staff />
       </TabPanel>
-    </Box>
+    </Box></div>    
   );
 }
 

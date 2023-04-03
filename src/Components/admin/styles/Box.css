@@ -1,0 +1,8 @@
+#Box{
+    justify-content: space-between;
+    display: flex;
+}
+
+#Box_AdminPage{
+    align-items: baseline;
+}

@@ -3,6 +3,7 @@ import { CardActionArea, CardContent, Typography } from '@mui/material';
 import { Card } from './card';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import IconButton from '@mui/material/IconButton/IconButton';
 
 
 function CatCard({ item }: any) {
@@ -16,8 +17,8 @@ function CatCard({ item }: any) {
                 </Typography>                
               </CardContent>              
             </CardActionArea>
-            <ModeEditIcon />
-            <DeleteIcon sx={{ margin: '20px'}}/>
+            <IconButton><ModeEditIcon /></IconButton>
+            <IconButton><DeleteIcon sx={{ margin: '20px'}}/></IconButton>
           </Card>
         </div>
   );
