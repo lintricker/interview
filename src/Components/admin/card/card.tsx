@@ -1,9 +1,26 @@
-import { Card as MuiCard, styled } from '@mui/material';
+import React from 'react';
+import { CardActionArea, CardContent, Typography } from '@mui/material';
+import { CardUtil } from './utils/card.utils';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import IconButton from '@mui/material/IconButton/IconButton';
 
-export const Card = styled(MuiCard)`
-  maxwidth: 345px;
-  margin: 22px 0 22px 0;
-  display: flex;  
-  text-align: left;
-  align-items: center;
-`;
+
+function Card({item}: {item: string}) {
+  return (
+          <div className="container">
+          <CardUtil>
+            <CardActionArea>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  {item}
+                </Typography>                
+              </CardContent>              
+            </CardActionArea>
+            <IconButton><ModeEditIcon /></IconButton>
+            <IconButton><DeleteIcon sx={{ margin: '20px'}}/></IconButton>
+          </CardUtil>
+        </div>
+  );
+};
+export default Card;

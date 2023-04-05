@@ -1,27 +1,29 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import React from 'react';
-import CatCard from '../card/catCard';
+import CatCard from '../card/card';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 import '../styles/Box.css';
+import { ICategories } from '../interfaces/interfaces';
 
-
-const cats = ['HTML', 'JavaScrypt', 'CSS', 'HTTP'];
+let categories: ICategories[] = [];
+categories.push({name: 'HTML'});
+categories.push({name: 'CSS'});
+categories.push({name: 'JavaScript'});
 
 const Categories = () => {
   return (
     <div>
-      <Box id='Box'><TextField id="standard-basic" label="Поиск" variant="standard" />
+      <Box id='Box'><TextField id="categories_search" label="Поиск" variant="standard" />
       <Fab color="primary" aria-label="add">
         <AddIcon />
       </Fab></Box>
       <Grid container >
         <Grid item>
-          {cats.map((item) => (
-            <CatCard key={item}
-                     item={item}/>
+          {categories.map((item) => (
+            <CatCard item={item.name}/>
           ))}
         </Grid>
       </Grid>
