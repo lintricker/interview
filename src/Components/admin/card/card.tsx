@@ -4,7 +4,7 @@ import { CardUtil } from './utils/card.utils';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import IconButton from '@mui/material/IconButton/IconButton';
-
+import { DiscardModal } from '../modals/modalDiscard';
 
 function Card({item}: {item: string}) {
   return (
@@ -18,7 +18,7 @@ function Card({item}: {item: string}) {
               </CardContent>              
             </CardActionArea>
             <IconButton><ModeEditIcon /></IconButton>
-            <IconButton><DeleteIcon sx={{ margin: '20px'}}/></IconButton>
+            <IconButton onClick={DiscardModal}><DeleteIcon sx={{ margin: '20px'}}/></IconButton>
           </CardUtil>
         </div>
   );
