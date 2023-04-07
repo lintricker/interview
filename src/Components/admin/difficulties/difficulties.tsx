@@ -1,17 +1,17 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import React from 'react';
-import CatCard from '../card/card';
+import Card from '../card/card';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 import '../styles/Box.css';
-import { IDifficulties } from '../interfaces/interfaces';
+import { IComplexity } from '../interfaces/interfaces';
 
-let diffs: IDifficulties[] = [];
-diffs.push({name: 'Junior'});
-diffs.push({name: 'Middle'});
-diffs.push({name: 'Senior'});
+let diffs: IComplexity[] = [];
+diffs.push({id: 345, name: 'Junior'});
+diffs.push({id: 657, name: 'Middle'});
+diffs.push({id: 921, name: 'Senior'});
 
 const Difficulties = () => {
   return (
@@ -23,7 +23,8 @@ const Difficulties = () => {
       <Grid container >
         <Grid item>
           {diffs.map((item) => (
-            <CatCard item={item.name}/>
+            <Card key={item.id}
+                  item={item.name}/>
           ))}
         </Grid>
       </Grid>

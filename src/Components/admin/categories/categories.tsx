@@ -9,9 +9,9 @@ import '../styles/Box.css';
 import { ICategories } from '../interfaces/interfaces';
 
 let categories: ICategories[] = [];
-categories.push({name: 'HTML'});
-categories.push({name: 'CSS'});
-categories.push({name: 'JavaScript'});
+categories.push({id: 10, name: 'HTML'});
+categories.push({id: 20, name: 'CSS'});
+categories.push({id: 30, name: 'JavaScript'});
 
 const Categories = () => {
   return (

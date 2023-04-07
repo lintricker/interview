@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import React from 'react';
-import CatCard from '../card/card';
+import Card from '../card/card';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import '../styles/Box.css';
@@ -9,9 +9,9 @@ import Box from '@mui/material/Box';
 import { ITypes } from '../interfaces/interfaces';
 
 let types: ITypes[] = [];
-types.push({name: 'Теория'});
-types.push({name: 'Практика'});
-types.push({name: 'Опыт'});
+types.push({id: 65, name: 'Теория'});
+types.push({id: 13, name: 'Практика'});
+types.push({id: 27, name: 'Опыт'});
 
 const Types = () => {
   return (
@@ -23,7 +23,9 @@ const Types = () => {
       <Grid container >
         <Grid item>
           {types.map((item) => (
-            <CatCard item={item.name}/>
+            <Card 
+                key={item.id}
+                item={item.name}/>
           ))}
         </Grid>
       </Grid>
