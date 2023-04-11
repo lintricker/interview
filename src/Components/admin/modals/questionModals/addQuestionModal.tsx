@@ -28,7 +28,7 @@ function AddQuestionModal(){
           sx={{ maxWidth: 500 }}
         >
           <Typography component="h2">
-            Редактирование
+            Добавление
           </Typography>
           <form
             onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
@@ -39,41 +39,41 @@ function AddQuestionModal(){
             <Stack spacing={2}>
               <FormControl>
                 <FormLabel>Вопрос</FormLabel>
-                <Input autoFocus />
+                <Input id='add_question' autoFocus />
               </FormControl>
               <FormControl>
                 <FormLabel>Ответ</FormLabel>
-                <Input />
+                <Input id='add_answer'/>
               </FormControl>
               <FormControl>
                 <FormLabel>Категория</FormLabel>
                 <Select placeholder="Выберите...">
-                  <Option>HTML</Option>
-                  <Option>CSS</Option>
-                  <Option>JavaScript</Option>
+                  <Option value="HTML">HTML</Option>
+                  <Option value="CSS">CSS</Option>
+                  <Option value="JavaScript">JavaScript</Option>
                 </Select>
               </FormControl>
               <FormControl>
                 <FormLabel>Тип</FormLabel>
                 <Select placeholder="Выберите...">
-                  <Option>Теория</Option>
-                  <Option>Практика</Option>
-                  <Option>Опыт</Option>
+                  <Option value="Теория">Теория</Option>
+                  <Option value="Практика">Практика</Option>
+                  <Option value="Опыт">Опыт</Option>
                 </Select>
               </FormControl>
               <FormControl>
                 <FormLabel>Сложность</FormLabel>
                 <Select placeholder="Выберите...">
-                  <Option>Junior</Option>
-                  <Option>Middle</Option>
-                  <Option>Senior</Option>
+                  <Option value="Junior">Junior</Option>
+                  <Option value="Middle">Middle</Option>
+                  <Option value="Senior">Senior</Option>
                 </Select>
               </FormControl>
               <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}>
                 <Button variant="plain" color="neutral" onClick={() => setOpen(false)}>
                 Отменить
                 </Button>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Сохранить</Button>
               </Box>              
             </Stack>
           </form>

@@ -70,7 +70,7 @@ function EditQuestionModal(){
                 <Button variant="plain" color="neutral" onClick={() => setOpen(false)}>
                 Отменить
                 </Button>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Сохранить</Button>
               </Box>              
             </Stack>
           </form>
