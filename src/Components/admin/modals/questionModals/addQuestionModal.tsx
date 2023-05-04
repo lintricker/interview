@@ -3,16 +3,19 @@ import Button from '@mui/joy/Button';
 import Typography from '@mui/joy/Typography';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
 import Modal from '@mui/joy/Modal';
-import ModalDialog from '@mui/joy/ModalDialog';
 import Stack from '@mui/joy/Stack';
 import Box from '@mui/material/Box';
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
+import TextField from '@mui/material/TextField';
+import { ICategories, IComplexity, ITypes } from '../../interfaces/interfaces';
+import MenuItem from '@mui/material/MenuItem';
+import { ModalDialog } from '@mui/joy';
 
+const categories: ICategories[]= [{id: 10, name: 'HTML'}, {id: 20, name: 'CSS'}, {id: 30, name: 'JavaScript'}];
+const diffs: IComplexity[] = [{id: 345, name: 'Junior'}, {id: 657, name: 'Middle'}, {id: 921, name: 'Senior'}];
+const types: ITypes[] = [{id: 65, name: 'Теория'}, {id: 13, name: 'Практика'}, {id: 27, name: 'Опыт'}];
 
 function AddQuestionModal(){
     const [open, setOpen] = React.useState(false);
@@ -22,11 +25,7 @@ function AddQuestionModal(){
         <AddIcon />
       </Fab>
       <Modal open={open} onClose={() => setOpen(false)}>
-        <ModalDialog
-          aria-labelledby="basic-modal-dialog-title"
-          aria-describedby="basic-modal-dialog-description"
-          sx={{ maxWidth: 500 }}
-        >
+        <ModalDialog>
           <Typography component="h2">
             Добавление
           </Typography>
@@ -39,35 +38,51 @@ function AddQuestionModal(){
             <Stack spacing={2}>
               <FormControl>
                 <FormLabel>Вопрос</FormLabel>
-                <Input id='add_question' autoFocus />
+                <TextField
+                multiline
+                maxRows={4}/>
               </FormControl>
               <FormControl>
                 <FormLabel>Ответ</FormLabel>
-                <Input id='add_answer'/>
+                <TextField
+                multiline
+                maxRows={4}/>
               </FormControl>
               <FormControl>
-                <FormLabel>Категория</FormLabel>
-                <Select placeholder="Выберите...">
-                  <Option value="HTML">HTML</Option>
-                  <Option value="CSS">CSS</Option>
-                  <Option value="JavaScript">JavaScript</Option>
-                </Select>
+                <TextField
+                id="outlined-select-currency"
+                select
+                label="Категория"
+                >
+                {categories.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                {option.name}
+                </MenuItem>))}
+                </TextField>                
               </FormControl>
               <FormControl>
-                <FormLabel>Тип</FormLabel>
-                <Select placeholder="Выберите...">
-                  <Option value="Теория">Теория</Option>
-                  <Option value="Практика">Практика</Option>
-                  <Option value="Опыт">Опыт</Option>
-                </Select>
+                <TextField
+                id="outlined-select-currency"
+                select
+                label="Тип вопроса"
+                >
+                {types.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                {option.name}
+                </MenuItem>))}
+                </TextField>                
               </FormControl>
               <FormControl>
-                <FormLabel>Сложность</FormLabel>
-                <Select placeholder="Выберите...">
-                  <Option value="Junior">Junior</Option>
-                  <Option value="Middle">Middle</Option>
-                  <Option value="Senior">Senior</Option>
-                </Select>
+                <TextField
+                id="outlined-select-currency"
+                select
+                label="Сложность"
+                >
+                {diffs.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                {option.name}
+                </MenuItem>))}
+                </TextField>                
               </FormControl>
               <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}>
                 <Button variant="plain" color="neutral" onClick={() => setOpen(false)}>

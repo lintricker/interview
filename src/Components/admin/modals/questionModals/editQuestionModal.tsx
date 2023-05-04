@@ -5,18 +5,22 @@ import IconButton from '@mui/material/IconButton/IconButton';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Stack from '@mui/joy/Stack';
 import Box from '@mui/material/Box';
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
+import TextField from '@mui/material/TextField';
+import { ICategories, IComplexity, ITypes } from '../../interfaces/interfaces';
+import MenuItem from '@mui/material/MenuItem';
+
+const categories: ICategories[]= [{id: 10, name: 'HTML'}, {id: 20, name: 'CSS'}, {id: 30, name: 'JavaScript'}];
+const diffs: IComplexity[] = [{id: 345, name: 'Junior'}, {id: 657, name: 'Middle'}, {id: 921, name: 'Senior'}];
+const types: ITypes[] = [{id: 65, name: 'Теория'}, {id: 13, name: 'Практика'}, {id: 27, name: 'Опыт'}];
 
 
 function EditQuestionModal(){
     const [open, setOpen] = React.useState(false);
-    return (
+    return (      
       <><IconButton onClick={() => setOpen(true)}><ModeEditIcon /></IconButton>
       <Modal open={open} onClose={() => setOpen(false)}>
         <ModalDialog
@@ -34,37 +38,55 @@ function EditQuestionModal(){
             }}
           >
             <Stack spacing={2}>
-              <FormControl>
+            <FormControl>
                 <FormLabel>Вопрос</FormLabel>
-                <Input autoFocus />
+                <TextField
+                id="outlined-multiline-flexible"
+                multiline
+                maxRows={4}/>
               </FormControl>
               <FormControl>
                 <FormLabel>Ответ</FormLabel>
-                <Input />
+                <TextField
+                id="outlined-multiline-flexible"
+                multiline
+                maxRows={4}/>
               </FormControl>
               <FormControl>
-                <FormLabel>Категория</FormLabel>
-                <Select placeholder="Выберите...">
-                  <Option>HTML</Option>
-                  <Option>CSS</Option>
-                  <Option>JavaScript</Option>
-                </Select>
+                <TextField
+                id="outlined-select-currency"
+                select
+                label="Категория"
+                >
+                {categories.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                {option.name}
+                </MenuItem>))}
+                </TextField>                
               </FormControl>
               <FormControl>
-                <FormLabel>Тип</FormLabel>
-                <Select placeholder="Выберите...">
-                  <Option>Теория</Option>
-                  <Option>Практика</Option>
-                  <Option>Опыт</Option>
-                </Select>
+                <TextField
+                id="outlined-select-currency"
+                select
+                label="Тип вопроса"
+                >
+                {types.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                {option.name}
+                </MenuItem>))}
+                </TextField>                
               </FormControl>
               <FormControl>
-                <FormLabel>Сложность</FormLabel>
-                <Select placeholder="Выберите...">
-                  <Option>Junior</Option>
-                  <Option>Middle</Option>
-                  <Option>Senior</Option>
-                </Select>
+                <TextField
+                id="outlined-select-currency"
+                select
+                label="Сложность"
+                >
+                {diffs.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                {option.name}
+                </MenuItem>))}
+                </TextField>                
               </FormControl>
               <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}>
                 <Button variant="plain" color="neutral" onClick={() => setOpen(false)}>
