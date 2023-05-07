@@ -6,7 +6,7 @@ import { Questions } from '../questions/Questions';
 import { Categories } from '../categories/categories';
 import { Types } from '../types/types';
 import { Staff } from '../staff/staff';
-import { Difficulties } from '../difficulties/difficulties'
+import { Complexities } from '../complexities/complexities'
 import { MenuHeader } from '../menu';
 import '../styles/Box.css';
 import { AllProps } from './utils/allProps.utils';
@@ -40,7 +40,7 @@ const AdminPage = () => {
         <Categories />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Difficulties />
+        <Complexities />
       </TabPanel>
       <TabPanel value={value} index={3}>
         <Types />
