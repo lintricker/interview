@@ -40,7 +40,7 @@ function AddQuestionModal(){
                 <FormLabel>Вопрос</FormLabel>
                 <TextField
                 multiline
-                maxRows={4}/>
+                maxRows={4} id='first'/>
               </FormControl>
               <FormControl>
                 <FormLabel>Ответ</FormLabel>
@@ -89,8 +89,8 @@ function AddQuestionModal(){
                 Отменить
                 </Button>
                 <Button type="submit">Сохранить</Button>
-              </Box>              
-            </Stack>
+              </Box>                            
+            </Stack >
           </form>
         </ModalDialog>
       </Modal></>

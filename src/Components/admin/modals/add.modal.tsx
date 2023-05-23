@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import { ModalDialog } from '@mui/joy';
-import { Input } from '@mui/material';
+import { Input, TextField } from '@mui/material';
 
 function AddModal(){
     const [open, setOpen] = React.useState(false);
@@ -21,7 +21,7 @@ function AddModal(){
       <Modal open={open} onClose={() => setOpen(false)}>
         <ModalDialog>
           <Typography component="h2">
-            Добавление
+            Отчет
           </Typography>
           <form
             onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
@@ -31,13 +31,19 @@ function AddModal(){
           >
             <Stack spacing={2}>
               <FormControl>
-              <FormLabel>Название</FormLabel>
-                <Input id='name' autoFocus />
+              <FormLabel>Общая оценка</FormLabel>
+              <TextField
+                multiline
+                maxRows={4}/>
+              </FormControl>
+              <FormControl>
+              <FormLabel>Комментарий интервьюера</FormLabel>
+              <TextField
+                multiline
+                maxRows={4}/>
               </FormControl>              
               <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}>
-                <Button variant="plain" color="neutral" onClick={() => setOpen(false)}>
-                Отменить
-                </Button>
+                
                 <Button type="submit">Сохранить</Button>
               </Box>              
             </Stack>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import '../styles/Box.css';
 import TextField from '@mui/material/TextField';
@@ -15,6 +15,7 @@ import { EditModal } from '../modals/edit.modal';
 import { AddModal } from '../modals/add.modal';
 import { ICategories } from '../interfaces/interfaces';
 import '../styles/TableRow.css';
+import { data, CategoriesGetter } from './categories.get';
 
 const categories: ICategories[]= [{id: 10, name: 'HTML'}, {id: 20, name: 'CSS'}, {id: 30, name: 'JavaScript'}];
 
@@ -32,8 +33,8 @@ const Categories = () => {
             <TableCell>Название</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {categories.map((item) => (
+        <TableBody {...CategoriesGetter()}>
+          {data.map((item) => (
             <TableRow
               id='tableRow'
               key={item.id}

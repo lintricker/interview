@@ -3,9 +3,10 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
+import '../auth/auyh.css'
 const Auth = () => {
     return (
-      <div>
+      <div id='auth'>
         <FormControl>
           <FormLabel>Email</FormLabel>
           <Input
