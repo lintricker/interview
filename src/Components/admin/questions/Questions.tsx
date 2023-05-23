@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -23,11 +23,40 @@ const questions: IQuestions[] = [
 {id: 6, questionText: 'Для чего используется оператор "&&"?', answerText: 'Ответ6', categoryID: 20, typeID: 27, complexityID: 657}, 
 {id: 7, questionText: 'Для чего используется оператор "||"?', answerText: 'Ответ7', categoryID: 10, typeID: 27, complexityID: 921}, 
 {id: 8, questionText: 'Является ли использование унарного плюса (оператор "+") самым быстрым способом преобразования строки в число?', answerText: 'Ответ8', categoryID: 30, typeID: 13, complexityID: 345}];
+export {questions}
 
 const types: ITypes[] = [{id: 65, name: 'Теория'}, {id: 13, name: 'Практика'}, {id: 27, name: 'Опыт'}];
 const complexities: IComplexity[] = [{id: 345, name: 'Junior'}, {id: 657, name: 'Middle'}, {id: 921, name: 'Senior'}];
 const categories: ICategories[]= [{id: 10, name: 'HTML'}, {id: 20, name: 'CSS'}, {id: 30, name: 'JavaScript'}];
 
+const baseUrl = 'http://localhost:8080/api/question'
+
+async function getInfo(e: { preventDeafault: () => void; }){
+  e.preventDeafault()
+  const res = await fetch(baseUrl,
+    {
+      method: 'GET'
+    })
+    console.log(res)
+    const data:string = await res.json()
+    return (     
+      {data.map((item) => (
+      <TableRow
+        key={item.id}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+        <TableCell component="th" scope="row">
+          {item.questionText}
+        </TableCell>
+        <TableCell align="right">{item.answerText}</TableCell>
+        <TableCell align="right">{types.find(type => type.id === item.typeID)?.name}</TableCell>
+        <TableCell align="right">{complexities.find(complex => complex.id === item.complexityID)?.name}</TableCell>
+        <TableCell align="right">{categories.find(category => category.id === item.categoryID)?.name}</TableCell>
+        <EditQuestionModal />
+        <DiscardModal />
+      </TableRow>
+    ))})
+}
 
 const Questions = () => {
   return (
@@ -46,23 +75,8 @@ const Questions = () => {
             <TableCell align="right">Категория</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {questions.map((item) => (
-            <TableRow
-              key={item.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {item.questionText}
-              </TableCell>
-              <TableCell align="right">{item.answerText}</TableCell>
-              <TableCell align="right">{types.find(type => type.id === item.typeID)?.name}</TableCell>
-              <TableCell align="right">{complexities.find(complex => complex.id === item.complexityID)?.name}</TableCell>
-              <TableCell align="right">{categories.find(category => category.id === item.categoryID)?.name}</TableCell>
-              <EditQuestionModal />
-              <DiscardModal />
-            </TableRow>
-          ))}
+        <TableBody {...getInfo}>          
+          
         </TableBody>
       </Table>
     </TableContainer>    

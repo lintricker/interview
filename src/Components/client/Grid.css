@@ -1,0 +1,10 @@
+#grid{
+    justify-content: start;
+    display: flex;
+}
+#div{
+    margin-left: 30px;
+}
+#box{
+    position: right;
+}
